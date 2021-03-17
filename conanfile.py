@@ -82,3 +82,5 @@ class NnpackConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["nnpack"]
+        if self.settings.os == "Linux":
+            self.cpp_info.system_libs = ["m"]

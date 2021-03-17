@@ -20,3 +20,7 @@ add_library(fp16 INTERFACE IMPORTED)
 set_property(TARGET fp16 PROPERTY INTERFACE_LINK_LIBRARIES CONAN_PKG::fp16)
 
 add_subdirectory(source_subfolder)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_link_libraries(nnpack PRIVATE m)
+endif()
